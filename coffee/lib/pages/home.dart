@@ -2,22 +2,31 @@ import 'package:coffee/const.dart';
 import 'package:coffee/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: backgroundColor,
-        body: Column(
+       
+         body: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Center the content vertically
           children: [
             Image.asset(
               'lib/images/coffee.png', // Adjust the image path based on your project structure
               height: 200, // Set the desired image height
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'Brew Day',
               style: TextStyle(
                 color: Colors.brown,
@@ -25,8 +34,8 @@ class Home extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'How Would You like your Coffee?',
               style: TextStyle(
                 color: Colors.brown,
@@ -34,21 +43,21 @@ class Home extends StatelessWidget {
               ), // Close the style here
             ),
             Padding(
-              padding: EdgeInsets.all(25.0),
+              padding: const EdgeInsets.all(25.0),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 78, 51, 40),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   height: 50,
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Enter Shop',
                       style: TextStyle(

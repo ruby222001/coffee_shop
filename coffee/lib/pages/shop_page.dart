@@ -18,6 +18,9 @@ class _ShopPageState extends State<ShopPage> {
   {
 
     Provider.of<CoffeeShop>(context,listen: false).addItemToCart(coffee);
+    //let user know it has been added to cart
+    showDialog(context: context, builder: (context)=> AlertDialog(title: Text("Successfully added to cart"),
+    ),);
   }
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,9 @@ class _ShopPageState extends State<ShopPage> {
       child: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
+          
           children: [
+            
           const Text("How would you like your coffee?",
             style: TextStyle(fontSize: 20),
             ),
@@ -39,8 +44,11 @@ class _ShopPageState extends State<ShopPage> {
       if (index < value.coffeeShop.length) {
         // Check if index is within bounds
         Coffee eachCoffee = value.coffeeShop[index];
-        return CoffeeTile(coffee: eachCoffee,
-        onPressed: () => addToCart(eachCoffee) ,);
+        return CoffeeTile(
+          coffee: eachCoffee,
+          icon: const Icon(Icons.add),
+        onPressed: () => addToCart(eachCoffee),
+        );
         
       }
       return null; // Return null if index is out of range
